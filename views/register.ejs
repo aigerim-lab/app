@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Регистрация</title>
+</head>
+<body>
+  <h1>Регистрация</h1>
+
+  <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+    <ul>
+      <% errors.forEach(function(error) { %>
+        <li style="color: red;"><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <form action="/auth/register" method="POST">
+    <input type="text" name="name" placeholder="Имя" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Пароль" required>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+</body>
+</html>
